@@ -26,7 +26,7 @@ public class ServerHostEndPoint {
   @GET
   @Path("/ping")
   @Produces("text/plain")
-  public Response doGet() {
+  public Response pippo() {
     String host = "";
     try {
       host = InetAddress.getLocalHost().getHostName();

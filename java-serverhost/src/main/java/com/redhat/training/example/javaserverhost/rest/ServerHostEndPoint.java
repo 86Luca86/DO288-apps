@@ -19,7 +19,22 @@ public class ServerHostEndPoint {
     catch (Exception e) {
        e.printStackTrace();
     }
-    String msg = "I am running on server "+host+" Version 1.0 \n";
+    String msg = "I am running on server "+host+" Version 2.0 Luca \n";
+    return Response.ok(msg).build();
+  }
+
+  @GET
+  @Path("/ping")
+  @Produces("text/plain")
+  public Response doGet() {
+    String host = "";
+    try {
+      host = InetAddress.getLocalHost().getHostName();
+    }
+    catch (Exception e) {
+       e.printStackTrace();
+    }
+    String msg = "I am running on server "+host+" Version 2.0 Ping page \n";
     return Response.ok(msg).build();
   }
 }

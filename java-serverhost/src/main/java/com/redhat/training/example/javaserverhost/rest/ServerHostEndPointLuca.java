@@ -1,0 +1,25 @@
+package com.redhat.training.example.javaserverhost.rest;
+
+import javax.ws.rs.Path;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.GET;
+import javax.ws.rs.Produces;
+import java.net.InetAddress;
+
+@Path("/luca")
+public class ServerHostEndPointLuca {
+
+  @GET
+  @Produces("text/plain")
+  public Response doGet() {
+    String host = "";
+    try {
+      host = InetAddress.getLocalHost().getHostName();
+    }
+    catch (Exception e) {
+       e.printStackTrace();
+    }
+    String msg = "I am running on server "host" Version 2.0 Luca page \n";
+    return Response.ok(msg).build();
+  }
+}
